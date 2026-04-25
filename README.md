@@ -1,3 +1,2 @@
 # Easy-editor
-You can edit photos here 
-You can change the filters on the photo
+It is my first project and this is easy editor yoou can change the filters on the photo
