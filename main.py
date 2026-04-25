@@ -70,7 +70,7 @@ btn_dir.clicked.connect(showFilenamesList)
 class ImageProcessor():
     def __init__(self):
         self.image = None
-        self.original_image = None  # Добавляем сохранение оригинала
+        self.original_image = None  
         self.dir = None
         self.filename = None
         self.save_dir = "Modified/"
@@ -81,7 +81,7 @@ class ImageProcessor():
         self.filename = filename
         image_path = os.path.join(dir, filename)
         self.image = Image.open(image_path)
-        self.original_image = self.image.copy()  # Сохраняем оригинал
+        self.original_image = self.image.copy()  
 
     def showImage(self, path):
         pixmapimage = QPixmap(path)
@@ -96,7 +96,7 @@ class ImageProcessor():
             os.mkdir(path)
         image_path = os.path.join(path, self.filename)
         self.image.save(image_path)
-        return image_path  # Возвращаем путь к сохраненному файлу
+        return image_path  
 
     def do_bw(self):
         if self.image:
@@ -107,30 +107,30 @@ class ImageProcessor():
     def do_left(self):
         if self.image:
             self.image = self.image.transpose(Image.ROTATE_90)
-            image_path = self.saveImage()  # Исправлено на saveImage()
+            image_path = self.saveImage()  
             self.showImage(image_path)
 
     def do_right(self):
         if self.image:
             self.image = self.image.transpose(Image.ROTATE_270)
-            image_path = self.saveImage()  # Исправлено на saveImage()
+            image_path = self.saveImage()  
             self.showImage(image_path)
 
     def do_mirror(self):
         if self.image:
             self.image = self.image.transpose(Image.FLIP_LEFT_RIGHT)
-            image_path = self.saveImage()  # Исправлено на saveImage()
+            image_path = self.saveImage()  
             self.showImage(image_path)
     
     def do_sharped(self):
         if self.image:
             self.image = self.image.filter(ImageFilter.SHARPEN)
-            image_path = self.saveImage()  # Исправлено на saveImage()
+            image_path = self.saveImage()  
             self.showImage(image_path)
 
     def reset_filter(self):
         if self.image and self.original_image:
-            self.image = self.original_image.copy()  # Восстанавливаем оригинал
+            self.image = self.original_image.copy()  
             image_path = os.path.join(self.dir, self.filename)
             self.showImage(image_path)
 
@@ -153,7 +153,7 @@ btn_mirror.clicked.connect(workimage.do_mirror)
 btn_rezkoct.clicked.connect(workimage.do_sharped)
 btn_reset.clicked.connect(workimage.reset_filter)
 
-# Добавляем кнопку сохранения
+
 btn_save.clicked.connect(workimage.saveImage)
 
 main_win.show()
