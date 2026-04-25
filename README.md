@@ -1,2 +1,2 @@
 # Easy-editor
-It is my first project and this is easy editor yoou can change the filters on the photo
+It is my first project, and it's easy editor where you can change the filters on your photos
